@@ -93,6 +93,7 @@ Deux points de départ :
 Chaque colonne sera un TU
 | Lettre |  Morse  |
 |:------:|:-------:|
+|  A    |  .-       |
 |   S    |  ...       |
 |   Z    |     --..   |
 |   ,    |     --..--   |
