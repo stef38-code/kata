@@ -28,6 +28,7 @@
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <jacoco-maven-plugin.line.minimum>0.70</jacoco-maven-plugin.line.minimum>
         <jacoco-maven-plugin.branch.minimum>0.70</jacoco-maven-plugin.branch.minimum>
+        <slf4j-api.version>1.7.26</slf4j-api.version>
     </properties>
     <dependencies>
         <dependency>
@@ -66,6 +67,11 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-collections4</artifactId>
             <version>${commons-collections4.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-jdk14</artifactId>
+            <version>${slf4j-api.version}</version>
         </dependency>
     </dependencies>
     <build>

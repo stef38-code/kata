@@ -1,7 +1,7 @@
 # Le morse
 ## Définition
 `
-Le code Morse international1, ou l’alphabet Morse international, 
+Le code Morse international, ou l’alphabet Morse international, 
 est un code permettant de transmettre un texte à l’aide de séries d’impulsions courtes et longues, 
 qu’elles soient produites par des signes, une lumière, un son ou un geste.
 `
@@ -13,32 +13,32 @@ qu’elles soient produites par des signes, une lumière, un son ou un geste.
 
 | Lettre | Code |
 |:------:|:----:|
-|A|  .-  |
-|B| -... |
-|C| -.-. |
-|D| -..  |
-|E|  .   |
-|F| ..-. |
-|G| --.  |
-|H| .... |
-|I|  ..  |
-|J| .--- |
-|K| -.-  |
-|L| .-.. |
-|M|  --  |
-|N|  -.  |
-|O| ---  |
-|P| .--. |
-|Q| --.- |
-|R| .-.  |
-|S| ...  |
-|T|  -   |
-|U| ..-  |
-|V| ...- |
-|W| .--  |
-|X| -..- |
-|Y| -.-- |
-|Z| --.. |
+|   A    |  .-  |
+|   B    | -... |
+|   C    | -.-. |
+|   D    | -..  |
+|   E    |  .   |
+|   F    | ..-. |
+|   G    | --.  |
+|   H    | .... |
+|   I    |  ..  |
+|   J    | .--- |
+|   K    | -.-  |
+|   L    | .-.. |
+|   M    |  --  |
+|   N    |  -.  |
+|   O    | ---  |
+|   P    | .--. |
+|   Q    | --.- |
+|   R    | .-.  |
+|   S    | ...  |
+|   T    |  -   |
+|   U    | ..-  |
+|   V    | ...- |
+|   W    | .--  |
+|   X    | -..- |
+|   Y    | -.-- |
+|   Z    | --.. |
 
 | Chiffre |  Code  |
 |:-------:|:------:|
@@ -53,26 +53,35 @@ qu’elles soient produites par des signes, une lumière, un son ou un geste.
 |    8    | ---..  |
 |    9    | ----.  |
 
-| Signes de ponctuation et symboles  |   Code   |
-|:----------------------------------:|:--------:|
-|.	Point| 	.-.-.-	 |
-|,	Virgule| 	--..--	 |
-|?	Point d’interrogation|  ..--..  |
-|'	Apostrophe|  .----.  |
-|!	Point d’exclamation|  -.-.--  |
-|/	Barre oblique (slash)|  -..-.   |
-|(	Parenthèse ouvrante	|  -.--.   |
-|)	Parenthèse fermante	|  -.--.-  |
-|&	Esperluette |  .-...   |
-|:	Deux-points|  ---...  |
-|;	Point-virgule|  -.-.-.  |
-|=	Signe égal|  -...-   |
-|+	Signe plus|  .-.-.   |
-|-	Signe moins ou trait d’union|  -....-  |
-|_	Tiret bas (underscore)|  ..--.-  |
-|     "	Guillemet droit (indifférencié)|  .-..-.  |
-|    $	Symbole dollar| ...-..-  |
-|    @	Arobase |  .--.-.  |
+| Signes de ponctuation et symboles |   Code   |
+|:---------------------------------:|:--------:|
+|              .	Point              | 	.-.-.-	 |
+|             ,	Virgule             | 	--..--	 |
+|      ?	Point d’interrogation      |  ..--..  |
+|           '	Apostrophe            |  .----.  |
+|       !	Point d’exclamation       |  -.-.--  |
+|      /	Barre oblique (slash)      |  -..-.   |
+|      (	Parenthèse ouvrante	       |  -.--.   |
+|      )	Parenthèse fermante	       |  -.--.-  |
+|           &	Esperluette           |  .-...   |
+|           :	Deux-points           |  ---...  |
+|          ;	Point-virgule          |  -.-.-.  |
+|           =	Signe égal            |  -...-   |
+|           +	Signe plus            |  .-.-.   |
+|  -	Signe moins ou trait d’union   |  -....-  |
+|     _	Tiret bas (underscore)      |  ..--.-  |
+| "	Guillemet droit (indifférencié) |  .-..-.  |
+|         $	Symbole dollar          | ...-..-  |
+|             @	Arobase             |  .--.-.  |
+
+| Signes A voir plus tard |   Code   |
+|:-----------------------:|:--------:|
+|            à            |  ·−−·−   |
+|            ä            |   ·−·−   |
+|            ç            |  −·−··   |
+|            é            |  ··−··   |
+|            è            |  ·−··−   |
+|            ö            |   −−−·   |
 
 * temps entre deux lettres est la durée est identique à celle de 3 points ou d’1 tiret(1 blanc dans notre cas)
 * temps entre deux mots est la durée est généralement identique à 7 points, parfois 5.(7 points dans notre cas)
@@ -95,6 +104,14 @@ Deux points de départ :
 2. Chaque chiffre
 3. Caractères spéciaux
 #### Les Mots
+
+|    Mot    |             Morse              |
+|:---------:|:------------------------------:|
+|   Lapin   |       .-.. .- .--. .. -.       |
+| barbecue  | -... .- .-. -... . -.-. ..- .  |
+| déjeuner  |   -.. . .--- . ..- -. . .-.    |
+|20220128|..--- ----- ..--- ..--- ----- .---- ..--- ---..|
+|,;:|--..-- -.-.- ---...|
 
 #### Phrases
 
@@ -134,4 +151,5 @@ Deux points de départ :
 
 ## outils en ligne
 [text-to-morse](https://onlinetexttools.com/convert-text-to-morse)
+
 [morse-to-text](https://onlinetexttools.com/convert-morse-to-text)

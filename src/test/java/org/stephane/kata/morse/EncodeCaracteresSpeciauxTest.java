@@ -37,7 +37,11 @@ class EncodeCaracteresSpeciauxTest {
                 arguments("\"", ".-..-."),
                 arguments("$", "...-..-"),
                 arguments("@", ".--.-.")
-
+                /*arguments("ä","·−·−"),
+        arguments("ç","−·−··"),
+        arguments("é","··−··"),
+        arguments("è","·−··−"),
+        arguments("ö","−−−·")*/
         );
     }
 

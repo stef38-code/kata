@@ -1,9 +1,12 @@
 package org.stephane.kata.morse;
 
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Map;
 import java.util.Optional;
 import java.util.TreeMap;
-
+@Slf4j
 public class DicoLettre {
     private final Map<String, String> dicoLettres;
 
@@ -42,6 +45,7 @@ public class DicoLettre {
     }
 
     public Optional<String> getCode(String text) {
-        return Optional.ofNullable(dicoLettres.get(text));
+        log.info("Lettre {}",text);
+        return Optional.ofNullable(dicoLettres.get(StringUtils.stripAccents(text)));
     }
 }

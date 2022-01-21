@@ -1,9 +1,11 @@
 package org.stephane.kata.morse;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.Map;
 import java.util.Optional;
 import java.util.TreeMap;
-
+@Slf4j
 public class DicoChiffre {
     private final Map<String, String> dicoChiffres;
 
@@ -28,6 +30,7 @@ public class DicoChiffre {
     }
 
     public Optional<String> getChiffre(String text) {
+        log.info("Chiffre {}",text);
         return Optional.ofNullable(dicoChiffres.get(text));
     }
 
