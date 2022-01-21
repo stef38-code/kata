@@ -88,24 +88,12 @@ Deux points de départ :
 
 ## Les étapes
 ### Encodage
-#### Lettre
+#### Les lettres/caratères
 
-Chaque colonne sera un TU
-| Lettre |  Morse  |
-|:------:|:-------:|
-|  A    |  .-       |
-|   S    |  ...       |
-|   Z    |     --..   |
-|   ,    |     --..--   |
-
-Puis faire un test pour l'ensemble des caractères
-
-#### Mots
-
-| Mots |  Morse  |
-|:----:|:-------:|
-| SOS  |  ... --- ...       |
-|   Salut   |     ... .- .-.. ..- -    |
+1. Chaque Lettre de l'alphabet(EncodeLettreTest)
+2. Chaque chiffre
+3. Caractères spéciaux
+#### Les Mots
 
 #### Phrases
 
