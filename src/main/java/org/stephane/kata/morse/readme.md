@@ -6,15 +6,6 @@ est un code permettant de transmettre un texte à l’aide de séries d’impuls
 qu’elles soient produites par des signes, une lumière, un son ou un geste.
 `
 [wiki](https://fr.wikipedia.org/wiki/Code_Morse_international)
-## But
-Le but de ce Kata est la réalisation d'un programme capable de décoder ou d'encoder en morse.
-
-Mais aussi de mettre en action le TDD(test-driven development) autrement dit **le développement piloté par les tests**
-
-Deux points de départ :
-* 1 classe CodeInternational
-  * Méthode encodage du text : toMorse(....) : String
-  * Méthode décodage du code Morse: toText(....) : String
 
 
 ## Les régles
@@ -85,6 +76,16 @@ Deux points de départ :
 
 * temps entre deux lettres est la durée est identique à celle de 3 points ou d’1 tiret(1 blanc dans notre cas)
 * temps entre deux mots est la durée est généralement identique à 7 points, parfois 5.(7 points dans notre cas)
+
+## But
+Le but de ce Kata est la réalisation d'un programme capable de décoder ou d'encoder en morse.
+
+Mais aussi de mettre en action le TDD(test-driven development) autrement dit **le développement piloté par les tests**
+
+Deux points de départ :
+* 1 classe CodeInternational
+  * Méthode encodage du text : toMorse(....) : String
+  * Méthode décodage du code Morse: toText(....) : String
 
 ## Les étapes
 ### Encodage
