@@ -1,14 +1,11 @@
 package org.stephane.kata.morse;
 
-import lombok.Getter;
-
 import java.util.Map;
 import java.util.Optional;
 import java.util.TreeMap;
 
 public class DicoLettre {
-    @Getter
-    Map<String, String> dicoLettres;
+    private final Map<String, String> dicoLettres;
 
     public DicoLettre() {
         this.dicoLettres = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
@@ -46,9 +43,5 @@ public class DicoLettre {
 
     public Optional<String> getCode(String text) {
         return Optional.ofNullable(dicoLettres.get(text));
-    }
-
-    boolean isEquals(String text) {
-        return dicoLettres.containsKey(text);
     }
 }
