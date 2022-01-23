@@ -1,13 +1,9 @@
 package org.stephane.kata.morse.dicos;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 
-import java.util.Map;
-import java.util.Optional;
-import java.util.TreeMap;
 @Slf4j
-public class Lettre extends DictionnaireImpl {
+public class Lettre extends Dictionnaire {
     public Lettre() {
         initDico();
     }

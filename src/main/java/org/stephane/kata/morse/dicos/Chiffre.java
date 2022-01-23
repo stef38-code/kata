@@ -2,11 +2,8 @@ package org.stephane.kata.morse.dicos;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.Map;
-import java.util.Optional;
-import java.util.TreeMap;
 @Slf4j
-public class Chiffre extends DictionnaireImpl {
+public class Chiffre extends Dictionnaire {
 
     public Chiffre() {
         initDico();

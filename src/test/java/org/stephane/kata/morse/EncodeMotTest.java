@@ -4,7 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.stephane.kata.morse.dicos.DictionnaireException;
+import org.stephane.kata.morse.exceptions.DictionnaireException;
 
 import static org.assertj.core.api.BDDAssertions.then;
 

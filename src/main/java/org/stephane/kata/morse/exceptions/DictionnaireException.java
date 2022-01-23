@@ -1,4 +1,4 @@
-package org.stephane.kata.morse.dicos;
+package org.stephane.kata.morse.exceptions;
 
 import java.text.MessageFormat;
 
