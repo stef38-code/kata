@@ -28,7 +28,6 @@ public class EncodeUnCaractere {
      * @return chaine de caractere sans accents
      */
     private String getMotSansAccent(String text) {
-        String motSansAccent = StringUtils.stripAccents(text);
-        return motSansAccent;
+        return StringUtils.stripAccents(text);
     }
 }
