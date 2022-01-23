@@ -5,6 +5,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.stephane.kata.morse.dicos.DictionnaireException;
 
 import java.util.stream.Stream;
 
@@ -41,7 +42,7 @@ class EncodeChiffreTest {
             "2,..---",
             "5,....."
     })
-    void toMorse_Lorsque_Chiffres_Attend_CodeMorse(String chiffre, String code) {
+    void toMorse_Lorsque_Chiffres_Attend_CodeMorse(String chiffre, String code) throws DictionnaireException {
         //Conditions préalables (given)
         //Une action se produit (when)
         String codeMorse = codeInternational.toMorse(chiffre);
@@ -51,7 +52,7 @@ class EncodeChiffreTest {
 
     @ParameterizedTest
     @MethodSource
-    void toMorse_Lorsque_TousLesChiffres_Attend_CodeMorse(String chiffre, String code) {
+    void toMorse_Lorsque_TousLesChiffres_Attend_CodeMorse(String chiffre, String code) throws DictionnaireException {
         //Conditions préalables (given)
         //Une action se produit (when)
         String codeMorse = codeInternational.toMorse(chiffre);

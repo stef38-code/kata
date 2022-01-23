@@ -1,14 +1,18 @@
 package org.stephane.kata.morse;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.stephane.kata.morse.dicos.DictionnaireException;
 
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.BDDAssertions.then;
+import static org.assertj.core.api.BDDAssertions.thenThrownBy;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 
@@ -37,11 +41,6 @@ class EncodeCaracteresSpeciauxTest {
                 arguments("\"", ".-..-."),
                 arguments("$", "...-..-"),
                 arguments("@", ".--.-.")
-                /*arguments("ä","·−·−"),
-        arguments("ç","−·−··"),
-        arguments("é","··−··"),
-        arguments("è","·−··−"),
-        arguments("ö","−−−·")*/
         );
     }
 
@@ -56,7 +55,7 @@ class EncodeCaracteresSpeciauxTest {
             "/,-..-.",
             "@,.--.-."
     })
-    void toMorse_Lorsque_CaracteresSpeciaux_Attend_CodeMorse(String chiffre, String code) {
+    void toMorse_Lorsque_CaracteresSpeciaux_Attend_CodeMorse(String chiffre, String code) throws DictionnaireException {
         //Conditions préalables (given)
         //Une action se produit (when)
         String codeMorse = codeInternational.toMorse(chiffre);
@@ -66,12 +65,19 @@ class EncodeCaracteresSpeciauxTest {
 
     @ParameterizedTest
     @MethodSource
-    void toMorse_Lorsque_TousCaracteresSpeciaux_Attend_CodeMorse(String chiffre, String code) {
+    void toMorse_Lorsque_TousCaracteresSpeciaux_Attend_CodeMorse(String chiffre, String code) throws DictionnaireException {
         //Conditions préalables (given)
         //Une action se produit (when)
         String codeMorse = codeInternational.toMorse(chiffre);
         //Vérifier la sortie (then)
         then(codeMorse).isNotNull().hasToString(code);
     }
-
+    @Test
+    void toMorse_Lorsque_CaracteresSpeciaux_Attend_Exception() throws DictionnaireException {
+        //Conditions préalables (given)
+        //Une action se produit (when)
+        thenThrownBy(() -> codeInternational.toMorse("#"))
+                .isInstanceOf(DictionnaireException.class)
+                        .hasMessageContaining("n'existe pas dans le dictionnaire des codes morse !!");
+    }
 }

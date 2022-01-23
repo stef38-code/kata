@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.stephane.kata.morse.dicos.DictionnaireException;
 
 import static org.assertj.core.api.BDDAssertions.then;
 
@@ -22,16 +23,17 @@ class EncodeMotTest {
             "déjeuner,-.. . .--- . ..- -. . .-.",
             "20220128,..--- ----- ..--- ..--- ----- .---- ..--- ---.."
     })
-    void toMorse_Lorsque_UnMot_Attend_MotCodeEnMorses(String text, String resulatCodeMorse) {
+    void toMorse_Lorsque_UnMot_Attend_MotCodeEnMorses(String text, String resulatCodeMorse) throws DictionnaireException {
         //Conditions préalables (given)
         //Une action se produit (when)
         String codeMorse = codeInternational.toMorse(text);
         //Vérifier la sortie (then)
+
         then(codeMorse).isNotEmpty().hasToString(resulatCodeMorse);
     }
 
     @Test
-    void toMorse_Lorsque_UnMot_CaracteresSpeciaux_Attend_MotCodeEnMorses() {
+    void toMorse_Lorsque_UnMot_CaracteresSpeciaux_Attend_MotCodeEnMorses() throws DictionnaireException {
         //Conditions préalables (given)
         String text = ",;:";
         String resulatCodeMorse = "--..-- -.-.-. ---...";

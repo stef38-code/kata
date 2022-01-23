@@ -1,24 +1,29 @@
 package org.stephane.kata.morse;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.stephane.kata.morse.dicos.DictionnaireException;
 
-import java.util.Optional;
+import java.util.stream.IntStream;
 
-public class EncodeUnMot {
+@Slf4j
+public class EncodeUnMot extends EncodeUnCaractere {
     public static final String TEMPS_ENTRE_DEUX_LETTRES = StringUtils.SPACE;
-    final DicoLettre dicoLettre = new DicoLettre();
-    final DicoChiffre dicoChiffre = new DicoChiffre();
-    final DicoCaracteresSpeciaux dicoCaracteresSpeciaux = new DicoCaracteresSpeciaux();
 
-    String getCodeValue(int caractere) {
-        return getCodeValue(Character.toString(caractere));
+    public String getCodeMotValue(String text) throws DictionnaireException {
+        log.debug("encode le mot: {}",text);
+        StringBuilder valueBuilder = new StringBuilder();
+        char[] ch = getMotSansAccent(text).toCharArray();
+        for (char c : ch) {
+            valueBuilder.append(
+                    getCodeCaractereValue(c)
+            ).append(EncodeUnMot.TEMPS_ENTRE_DEUX_LETTRES);
+        }
+        return valueBuilder.toString().trim();
     }
 
-    String getCodeValue(String text) {
-        Optional<String> code = dicoLettre.getCode(text);
-        return code.orElseGet(
-                () -> dicoChiffre.getChiffre(text).orElseGet(
-                        () -> dicoCaracteresSpeciaux.getCaracteresSpeciaux(text).orElse(StringUtils.EMPTY))
-        );
+    private String getMotSansAccent(String text) {
+        String motSansAccent = StringUtils.stripAccents(text);
+        return motSansAccent;
     }
 }
