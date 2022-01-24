@@ -8,7 +8,7 @@ import org.stephane.kata.morse.exceptions.DictionnaireException;
 
 import static org.assertj.core.api.BDDAssertions.then;
 
-class EncodeMotTest {
+class EncodePhraseTest {
     private CodeInternational codeInternational;
 
     @BeforeEach
@@ -18,12 +18,11 @@ class EncodeMotTest {
 
     @ParameterizedTest
     @CsvSource({
-            "Lapin,.-.. .- .--. .. -.",
-            "barbecue,-... .- .-. -... . -.-. ..- .",
-            "déjeuner,-.. . .--- . ..- -. . .-.",
-            "20220128,..--- ----- ..--- ..--- ----- .---- ..--- ---.."
+            "Au revoir,.- ..- ....... .-. . ...- --- .. .-.",
+            "Au secours,.- ..- ....... ... . -.-. --- ..- .-. ...",
+            "Comment ça va ?,-.-. --- -- -- . -. - ....... -.-. .- ....... ...- .- ....... ..--.."
     })
-    void toMorse_Lorsque_UnMot_Attend_MotCodeEnMorses(String text, String resulatCodeMorse) throws DictionnaireException {
+    void toMorse_Lorsque_UnePhrase_Attend_PhraseCodeEnMorses(String text, String resulatCodeMorse) throws DictionnaireException {
         //Conditions préalables (given)
         //Une action se produit (when)
         String codeMorse = codeInternational.toMorse(text);

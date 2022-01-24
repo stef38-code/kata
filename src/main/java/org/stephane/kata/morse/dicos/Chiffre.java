@@ -9,17 +9,18 @@ public class Chiffre extends Dictionnaire {
         initDico();
     }
 
-    private void initDico() {
-        dicoMap.put("0", "-----");
-        dicoMap.put("1", ".----");
-        dicoMap.put("2", "..---");
-        dicoMap.put("3", "..--");
-        dicoMap.put("4", "....-");
-        dicoMap.put("5", ".....");
-        dicoMap.put("6", "-....");
-        dicoMap.put("7", "- -...");
-        dicoMap.put("8", "---..");
-        dicoMap.put("9", "----.");
+    @Override
+    protected void initDico() {
+        addCode("0", "-----");
+        addCode("1", ".----");
+        addCode("2", "..---");
+        addCode("3", "..--");
+        addCode("4", "....-");
+        addCode("5", ".....");
+        addCode("6", "-....");
+        addCode("7", "- -...");
+        addCode("8", "---..");
+        addCode("9", "----.");
 
 
     }

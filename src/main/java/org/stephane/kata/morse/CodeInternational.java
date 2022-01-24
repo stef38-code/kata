@@ -10,7 +10,7 @@ public class CodeInternational {
 
 
     public String toMorse(String text) throws DictionnaireException {
-        return encode.getCodeTextValue(text);
+        return encode.getCodeDuText(text);
     }
 
 

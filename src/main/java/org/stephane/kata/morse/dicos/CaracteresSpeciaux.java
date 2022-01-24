@@ -7,26 +7,26 @@ public class CaracteresSpeciaux extends Dictionnaire {
      public CaracteresSpeciaux() {
         initDico();
     }
-
-    private void initDico() {
-        dicoMap.put(".", ".-.-.-");
-        dicoMap.put(",", "--..--");
-        dicoMap.put("?", "..--..");
-        dicoMap.put("'", ".----.");
-        dicoMap.put("!", "-.-.--");
-        dicoMap.put("/", "-..-.");
-        dicoMap.put("(", "-.--.");
-        dicoMap.put(")", "-.--.-");
-        dicoMap.put("&", ".-...");
-        dicoMap.put(":", "---...");
-        dicoMap.put(";", "-.-.-.");
-        dicoMap.put("=", "-...-");
-        dicoMap.put("+", ".-.-.");
-        dicoMap.put("-", "-....-");
-        dicoMap.put("_", "..--.-");
-        dicoMap.put("\"", ".-..-.");
-        dicoMap.put("$", "...-..-");
-        dicoMap.put("@", ".--.-.");
+@Override
+    protected void initDico() {
+       addCode(".", ".-.-.-");
+       addCode(",", "--..--");
+       addCode("?", "..--..");
+       addCode("'", ".----.");
+       addCode("!", "-.-.--");
+       addCode("/", "-..-.");
+       addCode("(", "-.--.");
+       addCode(")", "-.--.-");
+       addCode("&", ".-...");
+       addCode(":", "---...");
+       addCode(";", "-.-.-.");
+       addCode("=", "-...-");
+       addCode("+", ".-.-.");
+       addCode("-", "-....-");
+       addCode("_", "..--.-");
+       addCode("\"", ".-..-.");
+       addCode("$", "...-..-");
+       addCode("@", ".--.-.");
     }
 
 }

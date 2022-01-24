@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Registre des dictionnaires de correspondances caractere/Morse
+ */
 public class DictionnaireFactoryRegister implements DictionnaireFactory {
     List<Dictionnaire> dicos = new ArrayList<>();
 

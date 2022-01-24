@@ -28,7 +28,7 @@
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <jacoco-maven-plugin.line.minimum>0.70</jacoco-maven-plugin.line.minimum>
         <jacoco-maven-plugin.branch.minimum>0.70</jacoco-maven-plugin.branch.minimum>
-        <slf4j-api.version>1.7.26</slf4j-api.version>
+        <slf4j-api.version>1.7.25</slf4j-api.version>
     </properties>
     <dependencies>
         <dependency>

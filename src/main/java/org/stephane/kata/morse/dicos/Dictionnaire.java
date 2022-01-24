@@ -7,10 +7,19 @@ import java.util.Optional;
 import java.util.TreeMap;
 @Slf4j
 public abstract class Dictionnaire {
-    protected final Map<String, String> dicoMap = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+    private final Map<String, String> dicoMap = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+
+    protected Dictionnaire() {
+        initDico();
+    }
 
     public Optional<String> getMorseCode(String caractere) {
         log.debug("ecncodage du caractere {}",caractere);
         return Optional.ofNullable(dicoMap.get(caractere));
+    }
+    protected abstract void initDico() ;
+
+    protected void addCode(String mot,String code){
+        dicoMap.put(mot,code);
     }
 }

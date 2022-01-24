@@ -72,11 +72,21 @@ class EncodeCaracteresSpeciauxTest {
         then(codeMorse).isNotNull().hasToString(code);
     }
     @Test
-    void toMorse_Lorsque_CaracteresSpeciaux_Attend_Exception() throws DictionnaireException {
+    void toMorse_Lorsque_CaracteresSpeciaux_Attend_Exception() {
         //Conditions préalables (given)
         //Une action se produit (when)
         thenThrownBy(() -> codeInternational.toMorse("#"))
                 .isInstanceOf(DictionnaireException.class)
                         .hasMessageContaining("n'existe pas dans le dictionnaire des codes morse !!");
+    }
+    @Test
+    void toMorse_Lorsque_UnMot_CaracteresSpeciaux_Attend_MotCodeEnMorses() throws DictionnaireException {
+        //Conditions préalables (given)
+        String text = ",;:";
+        String resulatCodeMorse = "--..-- -.-.-. ---...";
+        //Une action se produit (when)
+        String codeMorse = codeInternational.toMorse(text);
+        //Vérifier la sortie (then)
+        then(codeMorse).isNotEmpty().hasToString(resulatCodeMorse);
     }
 }
