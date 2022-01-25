@@ -17,7 +17,7 @@ class EncodeLettreTest {
 
     private CodeInternational codeInternational;
 
-    private static Stream<Arguments> toMorse_Lorsque_LettreAlphaB_Attend_CodeMorse() {
+    private static Stream<Arguments> toMorseEttoText_Lorsque_LettreAlphaB_Attend_CodeMorse() {
         return Stream.of(arguments("A", ".-"),
                 arguments("B", "-..."),
                 arguments("C", "-.-."),
@@ -64,11 +64,23 @@ class EncodeLettreTest {
 
     @ParameterizedTest
     @MethodSource
-    void toMorse_Lorsque_LettreAlphaB_Attend_CodeMorse(String lettre, String code) throws DictionnaireException {
+    void toMorseEttoText_Lorsque_LettreAlphaB_Attend_CodeMorse(String lettre, String code) throws DictionnaireException {
         //Conditions préalables (given)
         //Une action se produit (when)
         String codeMorse = codeInternational.toMorse(lettre);
+        String caractere = codeInternational.toText(code);
         //Vérifier la sortie (then)
         then(codeMorse).isNotNull().hasToString(code);
+        then(caractere).isNotNull().isEqualToIgnoringCase(lettre);
     }
+    @ParameterizedTest
+    @CsvSource({"A, .-", "a, .-", "C,-.-.", "S, ...", "Z,--.."})
+    void toText_Lorsque_CodeMorse_Attend_Lettre(String lettre, String code) throws DictionnaireException {
+        //Conditions préalables (given)
+        //Une action se produit (when)
+        String codeMorse = codeInternational.toText(code);
+        //Vérifier la sortie (then)
+        then(codeMorse).isNotNull().isEqualToIgnoringCase(lettre);
+    }
+
 }

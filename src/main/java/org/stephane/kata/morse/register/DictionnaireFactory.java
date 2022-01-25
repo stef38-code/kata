@@ -20,4 +20,6 @@ public interface DictionnaireFactory {
      * @param dico le dico
      */
     void addDictionnaire(Dictionnaire dico);
+
+    Optional<String> getDecode(String codeUnCaractere);
 }

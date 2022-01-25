@@ -1,14 +1,13 @@
 package org.stephane.kata.morse.encoder;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.stephane.kata.morse.exceptions.DictionnaireException;
 
 /**
  * Encode du text
  */
 @Slf4j
-public class EncodeDuText extends EncodeUnMot {
+public class DecodeDuText extends EncodeUnMot {
     public static final String TEMPS_ENTRE_DEUX_MOTS = " ....... ";
 
     /**
@@ -36,26 +35,8 @@ public class EncodeDuText extends EncodeUnMot {
     private void encodeLesMots(String[] mots,int position,StringBuilder valueBuilder) throws DictionnaireException {
         if (  position >= 1 ) {
             encodeLesMots(mots,position -1,valueBuilder);
-            valueBuilder.append(StringUtils.SPACE);
+            valueBuilder.append(DecodeDuText.TEMPS_ENTRE_DEUX_MOTS);
         }
         valueBuilder.append(getCodeDuMot(mots[position])) ;
     }
-
-    public String getDecodeDuText(String code) throws DictionnaireException {
-        log.debug("Decode le code: {}",code);
-        //split en un tabeau de mot
-        String[] codes = code.split(TEMPS_ENTRE_DEUX_MOTS);
-        StringBuilder valueBuilder = new StringBuilder();
-        decodeLesCodes(codes,codes.length-1,valueBuilder);
-        return valueBuilder.toString();
-    }
-    private void decodeLesCodes(String[] codes,int position,StringBuilder valueBuilder) throws DictionnaireException {
-        if (  position >= 1 ) {
-            decodeLesCodes(codes,position -1,valueBuilder);
-            valueBuilder.append(EncodeDuText.TEMPS_ENTRE_DEUX_MOTS);
-        }
-        valueBuilder.append(getDecodeDuMot(codes[position])) ;
-    }
-
-
 }

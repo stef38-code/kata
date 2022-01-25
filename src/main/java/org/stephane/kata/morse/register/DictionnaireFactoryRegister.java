@@ -34,4 +34,13 @@ public class DictionnaireFactoryRegister implements DictionnaireFactory {
     public void addDictionnaire(Dictionnaire dico) {
         dicos.add(dico);
     }
+
+    @Override
+    public Optional<String> getDecode(String codeUnCaractere) {
+        for (Dictionnaire dico : dicos) {
+            Optional<String> caractere = dico.getCaractere(codeUnCaractere);
+            if (caractere.isPresent()) return caractere;
+        }
+        return Optional.empty();
+    }
 }

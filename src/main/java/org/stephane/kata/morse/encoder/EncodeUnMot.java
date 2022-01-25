@@ -24,7 +24,13 @@ public class EncodeUnMot extends EncodeUnCaractere {
         encodeMot(ch,ch.length-1,valueBuilder);
          return valueBuilder.toString();
     }
-
+    public String getDecodeDuMot(String code) throws DictionnaireException {
+        log.debug("Decode le code: {}",code);
+        StringBuilder valueBuilder = new StringBuilder();
+        String[] codes = code.split(TEMPS_ENTRE_DEUX_LETTRES);
+        decodeCode(codes,codes.length-1,valueBuilder);
+        return valueBuilder.toString();
+    }
     /**
      * Construction d'une chaine de caractere de code Morse depuis un tableau de caractere
      * Appel récursif
@@ -40,4 +46,13 @@ public class EncodeUnMot extends EncodeUnCaractere {
         }
         valueBuilder.append(getCode(tableauDeCaracteres[position])) ;
     }
+
+    private void decodeCode(String[] tableauDeCodes,int position,StringBuilder valueBuilder) throws DictionnaireException {
+        if (  position >= 1 ) {
+            decodeCode(tableauDeCodes,position -1,valueBuilder);
+        }
+        valueBuilder.append(getDecode(tableauDeCodes[position])) ;
+    }
+
+
 }

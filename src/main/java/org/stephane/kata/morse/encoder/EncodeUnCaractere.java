@@ -48,4 +48,13 @@ public class EncodeUnCaractere {
     private String getMotSansAccent(String text) {
         return StringUtils.stripAccents(text);
     }
+
+    public String getDecode(String codeUnCaractere) throws DictionnaireException {
+        log.debug("decode le caracatere: {}",codeUnCaractere);
+        Optional<String> caractere = register.getDecode( codeUnCaractere);
+        if (caractere.isPresent()) {
+            return caractere.get();
+        }
+        throw new DictionnaireException("Le code morse ["+codeUnCaractere+"] n'existe pas dans le dictionnaire des codes morse !!");
+    }
 }
