@@ -1,4 +1,4 @@
-package org.stephane.kata.morse.encoder;
+package org.stephane.kata.morse.business;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -12,7 +12,7 @@ import java.util.Optional;
  * Encodage d'un caractere
  */
 @Slf4j
-public class EncodeUnCaractere {
+public class UnCaractere {
     private final DictionnaireFactory register = new DictionnaireFactoryRegister();
 
     /**

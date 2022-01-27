@@ -1,4 +1,4 @@
-package org.stephane.kata.morse.encoder;
+package org.stephane.kata.morse.business;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -8,7 +8,7 @@ import org.stephane.kata.morse.exceptions.DictionnaireException;
  * Encode un mot
  */
 @Slf4j
-public class EncodeUnMot extends EncodeUnCaractere {
+public class UnMot extends UnCaractere {
     public static final String TEMPS_ENTRE_DEUX_LETTRES = StringUtils.SPACE;
 
     /**
@@ -42,7 +42,7 @@ public class EncodeUnMot extends EncodeUnCaractere {
     private void encodeMot(char[] tableauDeCaracteres,int position,StringBuilder valueBuilder) throws DictionnaireException {
         if (  position >= 1 ) {
             encodeMot(tableauDeCaracteres,position -1,valueBuilder);
-            valueBuilder.append(EncodeUnMot.TEMPS_ENTRE_DEUX_LETTRES);
+            valueBuilder.append(UnMot.TEMPS_ENTRE_DEUX_LETTRES);
         }
         valueBuilder.append(getCode(tableauDeCaracteres[position])) ;
     }

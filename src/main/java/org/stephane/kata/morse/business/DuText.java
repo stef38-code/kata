@@ -1,4 +1,4 @@
-package org.stephane.kata.morse.encoder;
+package org.stephane.kata.morse.business;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -8,7 +8,7 @@ import org.stephane.kata.morse.exceptions.DictionnaireException;
  * Encode du text
  */
 @Slf4j
-public class EncodeDuText extends EncodeUnMot {
+public class DuText extends UnMot {
     public static final String TEMPS_ENTRE_DEUX_MOTS = " ....... ";
 
     /**
@@ -36,7 +36,7 @@ public class EncodeDuText extends EncodeUnMot {
     private void encodeLesMots(String[] mots,int position,StringBuilder valueBuilder) throws DictionnaireException {
         if (  position >= 1 ) {
             encodeLesMots(mots,position -1,valueBuilder);
-            valueBuilder.append(StringUtils.SPACE);
+            valueBuilder.append(TEMPS_ENTRE_DEUX_MOTS);
         }
         valueBuilder.append(getCodeDuMot(mots[position])) ;
     }
@@ -52,7 +52,7 @@ public class EncodeDuText extends EncodeUnMot {
     private void decodeLesCodes(String[] codes,int position,StringBuilder valueBuilder) throws DictionnaireException {
         if (  position >= 1 ) {
             decodeLesCodes(codes,position -1,valueBuilder);
-            valueBuilder.append(EncodeDuText.TEMPS_ENTRE_DEUX_MOTS);
+            valueBuilder.append(DuText.TEMPS_ENTRE_DEUX_MOTS);
         }
         valueBuilder.append(getDecodeDuMot(codes[position])) ;
     }
