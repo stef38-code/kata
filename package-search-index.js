@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"org.stephane.kata.morse"},{"l":"org.stephane.kata.morse.business"},{"l":"org.stephane.kata.morse.dicos"},{"l":"org.stephane.kata.morse.exceptions"},{"l":"org.stephane.kata.morse.register"}]
