@@ -18,7 +18,7 @@ public class Chiffre extends Dictionnaire {
         addCode("4", "....-");
         addCode("5", ".....");
         addCode("6", "-....");
-        addCode("7", "- -...");
+        addCode("7", "--...");
         addCode("8", "---..");
         addCode("9", "----.");
 

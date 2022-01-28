@@ -1,14 +1,14 @@
 package org.stephane.kata.morse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.stephane.kata.morse.exceptions.DictionnaireException;
 
 import static org.assertj.core.api.BDDAssertions.then;
 
-class EncodePhraseTest {
+class PhraseTest {
     private CodeInternational codeInternational;
 
     @BeforeEach
@@ -22,12 +22,14 @@ class EncodePhraseTest {
             "Au secours,.- ..- ....... ... . -.-. --- ..- .-. ...",
             "Comment ça va ?,-.-. --- -- -- . -. - ....... -.-. .- ....... ...- .- ....... ..--.."
     })
-    void toMorse_Lorsque_UnePhrase_Attend_PhraseCodeEnMorses(String text, String resulatCodeMorse) throws DictionnaireException {
+    void encode_decode_unePhrase(String text, String resulatCodeMorse) throws DictionnaireException {
         //Conditions préalables (given)
         //Une action se produit (when)
         String codeMorse = codeInternational.toMorse(text);
+        String phrase = codeInternational.toText(resulatCodeMorse);
         //Vérifier la sortie (then)
 
         then(codeMorse).isNotEmpty().hasToString(resulatCodeMorse);
+        then(phrase).isNotEmpty().isEqualToIgnoringCase(StringUtils.stripAccents(text));
     }
 }

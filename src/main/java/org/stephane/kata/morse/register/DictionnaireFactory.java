@@ -9,9 +9,9 @@ import java.util.Optional;
  */
 public interface DictionnaireFactory {
     /**
-     * Donne le code morse d'un caractare
+     * Donne le code morse en fonction du caractere donné
      * @param caractere le caractere
-     * @return optional si il existe une correspondance
+     * @return le caractere si trouvé, sinon Optional.empty()
      */
     Optional<String> getMorseCode(String caractere);
 
@@ -20,6 +20,10 @@ public interface DictionnaireFactory {
      * @param dico le dico
      */
     void addDictionnaire(Dictionnaire dico);
-
-    Optional<String> getDecode(String codeUnCaractere);
+    /**
+     * Donne le caractere en fonction du code morse donné
+     * @param codeMorseDuCaractere le code morse d'un caractere
+     * @return le code morse si trouvé, sinon Optional.empty()
+     */
+    Optional<String> getDecode(String codeMorseDuCaractere);
 }

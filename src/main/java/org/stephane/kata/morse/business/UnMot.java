@@ -17,41 +17,59 @@ public class UnMot extends UnCaractere {
      * @return le code morse du mot
      * @throws DictionnaireException si un caractere est inconnu
      */
-    public String getCodeDuMot(String mot) throws DictionnaireException {
-        log.debug("encode le mot: {}",mot);
+    public String getCodeMorseDuMot(String mot) throws DictionnaireException {
         StringBuilder valueBuilder = new StringBuilder();
         char[] ch = mot.toCharArray();
-        encodeMot(ch,ch.length-1,valueBuilder);
+        //parcourt les lettres
+        encodeLettre(ch,ch.length-1,valueBuilder);
+        log.info("encode le mot: '{}' '{}'",mot,valueBuilder);
          return valueBuilder.toString();
     }
-    public String getDecodeDuMot(String code) throws DictionnaireException {
-        log.debug("Decode le code: {}",code);
+
+    /**
+     * Donne le mot correspondant au code morse donnée
+     * @param code le code morse d'un mot
+     * @return le mot
+     * @throws DictionnaireException si un code morse est inconnu
+     */
+    public String getMotDuCodeMorse(String code) throws DictionnaireException {
+
         StringBuilder valueBuilder = new StringBuilder();
         String[] codes = code.split(TEMPS_ENTRE_DEUX_LETTRES);
-        decodeCode(codes,codes.length-1,valueBuilder);
+        //Parcourt les lettres en morse
+        decodeLettre(codes,codes.length-1,valueBuilder);
+        log.info("Decode le code '{}' '{}'",code,valueBuilder);
         return valueBuilder.toString();
     }
     /**
      * Construction d'une chaine de caractere de code Morse depuis un tableau de caractere
      * Appel récursif
      * @param tableauDeCaracteres tableau de caracteres
-     * @param position position de depart
+     * @param position position en cours
      * @param valueBuilder chaine pour le code morse
      * @throws DictionnaireException si un caractere est inconnu
      */
-    private void encodeMot(char[] tableauDeCaracteres,int position,StringBuilder valueBuilder) throws DictionnaireException {
+    private void encodeLettre(char[] tableauDeCaracteres, int position, StringBuilder valueBuilder) throws DictionnaireException {
         if (  position >= 1 ) {
-            encodeMot(tableauDeCaracteres,position -1,valueBuilder);
+            encodeLettre(tableauDeCaracteres,position -1,valueBuilder);
             valueBuilder.append(UnMot.TEMPS_ENTRE_DEUX_LETTRES);
         }
-        valueBuilder.append(getCode(tableauDeCaracteres[position])) ;
+        valueBuilder.append(getCodeMorseDuCaractere(tableauDeCaracteres[position])) ;
     }
 
-    private void decodeCode(String[] tableauDeCodes,int position,StringBuilder valueBuilder) throws DictionnaireException {
+    /**
+     * Construction d'une chaine de caractere de lettre depuis un tableau de code morse
+     * Appel récursif
+     * @param tableauDeCodes tableau de code morse
+     * @param position la position en cours
+     * @param valueBuilder chaine pour le mot
+     * @throws DictionnaireException si un code morse est inconnu
+     */
+    private void decodeLettre(String[] tableauDeCodes, int position, StringBuilder valueBuilder) throws DictionnaireException {
         if (  position >= 1 ) {
-            decodeCode(tableauDeCodes,position -1,valueBuilder);
+            decodeLettre(tableauDeCodes,position -1,valueBuilder);
         }
-        valueBuilder.append(getDecode(tableauDeCodes[position])) ;
+        valueBuilder.append(getCaractereDuCodeMorse(tableauDeCodes[position])) ;
     }
 
 

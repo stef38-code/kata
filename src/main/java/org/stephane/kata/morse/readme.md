@@ -52,7 +52,7 @@ qu’elles soient produites par des signes, une lumière, un son ou un geste.
 |    4    | ....-  |
 |    5    | .....  |
 |    6    | -....  |
-|    7    | - -... |
+|    7    | --... |
 |    8    | ---..  |
 |    9    | ----.  |
 

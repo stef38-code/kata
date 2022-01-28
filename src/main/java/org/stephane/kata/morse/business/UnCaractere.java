@@ -21,8 +21,8 @@ public class UnCaractere {
      * @return le code sous forme de String
      * @throws DictionnaireException si le caractere est inconnu
      */
-    public String getCode(String caracatere) throws DictionnaireException {
-        log.debug("encode le caracatere: {}",caracatere);
+    public String getCodeMorseDuCaractere(String caracatere) throws DictionnaireException {
+        log.info("encode le caracatere: {}",caracatere);
         Optional<String> codeMorse = register.getMorseCode( getMotSansAccent(caracatere));
         if (codeMorse.isPresent()) {
             return codeMorse.get();
@@ -36,8 +36,8 @@ public class UnCaractere {
      * @return le code sous forme de String
      * @throws DictionnaireException si le caractere est inconnu
      */
-    public String getCode(int codeAscii) throws DictionnaireException {
-        return getCode(Character.toString(codeAscii));
+    public String getCodeMorseDuCaractere(int codeAscii) throws DictionnaireException {
+        return getCodeMorseDuCaractere(Character.toString(codeAscii));
     }
 
     /**
@@ -49,10 +49,11 @@ public class UnCaractere {
         return StringUtils.stripAccents(text);
     }
 
-    public String getDecode(String codeUnCaractere) throws DictionnaireException {
-        log.debug("decode le caracatere: {}",codeUnCaractere);
+    public String getCaractereDuCodeMorse(String codeUnCaractere) throws DictionnaireException {
+
         Optional<String> caractere = register.getDecode( codeUnCaractere);
         if (caractere.isPresent()) {
+            log.info("decode '{}' le caracatere: {}",caractere.get(),codeUnCaractere);
             return caractere.get();
         }
         throw new DictionnaireException("Le code morse ["+codeUnCaractere+"] n'existe pas dans le dictionnaire des codes morse !!");

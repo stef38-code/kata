@@ -93,6 +93,24 @@
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
+            <!-- javaDoc -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+
+                        <configuration>
+                            <outputDirectory>${project.build.sourceDirectory}/javadoc</outputDirectory>
+                            <destDir>apidocs</destDir>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <!-- coverage -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
