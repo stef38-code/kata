@@ -28,6 +28,7 @@
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <jacoco-maven-plugin.line.minimum>0.70</jacoco-maven-plugin.line.minimum>
         <jacoco-maven-plugin.branch.minimum>0.70</jacoco-maven-plugin.branch.minimum>
+        <slf4j-api.version>1.7.25</slf4j-api.version>
     </properties>
     <dependencies>
         <dependency>
@@ -47,6 +48,12 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>${junit-jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
@@ -60,6 +67,11 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-collections4</artifactId>
             <version>${commons-collections4.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-jdk14</artifactId>
+            <version>${slf4j-api.version}</version>
         </dependency>
     </dependencies>
     <build>
@@ -80,6 +92,24 @@
                         <!-- Si besoin MapStruct mettre ICI -->
                     </annotationProcessorPaths>
                 </configuration>
+            </plugin>
+            <!-- javaDoc -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+
+                        <configuration>
+                            <outputDirectory>${project.build.sourceDirectory}/javadoc</outputDirectory>
+                            <destDir>apidocs</destDir>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
             <!-- coverage -->
             <plugin>
