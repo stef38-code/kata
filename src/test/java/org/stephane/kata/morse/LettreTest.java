@@ -1,6 +1,7 @@
 package org.stephane.kata.morse;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -8,7 +9,9 @@ import org.stephane.kata.morse.exceptions.DictionnaireException;
 
 import java.util.stream.Stream;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.BDDAssertions.then;
+import static org.assertj.core.api.BDDAssertions.thenThrownBy;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 
@@ -63,4 +66,24 @@ class LettreTest {
         then(caractere).isNotNull().isEqualToIgnoringCase(lettre);
     }
 
+    @Test
+    void decode_Lorsque_paramNull_Attend_DictionnaireException() {
+        //Conditions préalables (given)
+
+        //Une action se produit (when)
+        thenThrownBy(()->codeInternational.toText(null))
+                .isInstanceOf(DictionnaireException.class)
+                        .hasMessage("Le code morse ne peut pas être null");
+        //Vérifier la sortie (then)
+    }
+    @Test
+    void encode_Lorsque_paramNull_Attend_DictionnaireException() {
+        //Conditions préalables (given)
+
+        //Une action se produit (when)
+        thenThrownBy(()->codeInternational.toMorse(null))
+                .isInstanceOf(DictionnaireException.class)
+                .hasMessage("Le texte ne peut pas être null");
+        //Vérifier la sortie (then)
+    }
 }
