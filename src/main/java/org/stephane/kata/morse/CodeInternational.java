@@ -4,6 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.stephane.kata.morse.business.DuText;
 import org.stephane.kata.morse.exceptions.DictionnaireException;
 
+import java.util.Objects;
+
 /**
  * Classe principale pour
  * l'écriture en morse d'un text
@@ -20,7 +22,11 @@ public class CodeInternational {
      * @throws DictionnaireException si un des caractères n'est pas défini dans les dictionnaires
      */
     public String toMorse(String text) throws DictionnaireException {
+        if (Objects.isNull(text)) {
+            throw new DictionnaireException("Le texte ne peut pas être null");
+        }
         return this.text.getCodeMorseDuText(text);
+
     }
 
     /**
@@ -30,6 +36,9 @@ public class CodeInternational {
      * @throws DictionnaireException si un des codes morses n'est pas défini dans les dictionnaires
      */
     public String toText(String code) throws DictionnaireException {
+        if (Objects.isNull(code)) {
+            throw new DictionnaireException("Le code morse ne peut pas être null");
+        }
         return text.getTextDuMorse(code);
     }
 }
