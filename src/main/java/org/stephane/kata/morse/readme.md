@@ -124,6 +124,19 @@ Deux points de départ :
 ### Décodage
 
 Repartir depuis le même jeux de données mais cette-ci en faisait du code Morse vers le text
+
+## Le code source
+
+|                                                 |                   Description                   |
+|:-----------------------------------------------|:-----------------------------------------------:|
+|  [CodeInternational](./CodeInternational.java)  |   Classe principale pour code/décode du morse   |
+|             [business](./business)              |  Package de classe de recherche des coordances  |
+|                [dicos](./dicos)                 |       Package contenant les dictionnaires       |
+|             [register](./register)              |          Package du register des dico           |
+
+## Le code source
+L'ensemble des tests sont dans [](../../../../../../../test/java/src/test/java/org/stephane/kata/morse)
+
 ## outils en ligne
 [text-to-morse](https://onlinetexttools.com/convert-text-to-morse)
 
