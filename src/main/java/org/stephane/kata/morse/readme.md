@@ -135,7 +135,7 @@ Repartir depuis le même jeux de données mais cette-ci en faisait du code Morse
 |             [register](./register)              |          Package du register des dico           |
 
 ## Le code source
-L'ensemble des tests sont dans [](../../../../../../../test/java/src/test/java/org/stephane/kata/morse)
+L'ensemble des tests sont dans [tests unitaires](../../../../../../../test/java/src/test/java/org/stephane/kata/morse)
 
 ## outils en ligne
 [text-to-morse](https://onlinetexttools.com/convert-text-to-morse)
